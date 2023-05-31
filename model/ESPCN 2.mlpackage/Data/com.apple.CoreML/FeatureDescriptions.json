@@ -1,0 +1,15 @@
+{
+  "Outputs" : {
+    "Identity" : {
+      "MLFeatureShortDescription" : "Super-resolved image of size 245x256, containing a single Y channel."
+    }
+  },
+  "Inputs" : {
+    "input_2" : {
+      "MLFeatureShortDescription" : "A single image of size 64x64x1, containing a single Y channel from the YCbCr colorspace."
+    }
+  },
+  "TrainingInputs" : {
+
+  }
+}
