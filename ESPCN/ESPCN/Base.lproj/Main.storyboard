@@ -18,7 +18,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IfN-0b-Od8">
                                 <rect key="frame" x="16" y="16" width="256" height="256"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="5SK-Hl-xPM"/>
                                     <constraint firstAttribute="width" secondItem="IfN-0b-Od8" secondAttribute="height" id="PZR-dr-lgS"/>
@@ -27,7 +27,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jve-tG-iB7">
                                 <rect key="frame" x="395" y="16" width="256" height="256"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="gqs-Ku-gU3"/>
                                     <constraint firstAttribute="height" constant="256" id="shU-8Q-rJf"/>
@@ -38,14 +38,50 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Super resolve!"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL1-0w-alk">
+                                <rect key="frame" x="316.5" y="133.5" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5je-e1-NVm">
+                                <rect key="frame" x="89" y="280" width="110.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" systemColor="systemGray3Color"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SR image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PRN-l6-tKg">
+                                <rect key="frame" x="486.5" y="280" width="73" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.66903015052479042" green="1" blue="0.96264773940277737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5s-S0-Fog">
+                                <rect key="frame" x="333.5" y="153" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="c6X-1A-K65" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1nc-c4-0jB"/>
+                            <constraint firstItem="IL1-0w-alk" firstAttribute="centerY" secondItem="IfN-0b-Od8" secondAttribute="centerY" id="2Dw-2V-lVR"/>
+                            <constraint firstItem="5je-e1-NVm" firstAttribute="centerX" secondItem="IfN-0b-Od8" secondAttribute="centerX" id="5Im-Ks-KoQ"/>
+                            <constraint firstItem="PRN-l6-tKg" firstAttribute="top" secondItem="jve-tG-iB7" secondAttribute="bottom" constant="8" symbolic="YES" id="AOI-Ju-p6c"/>
                             <constraint firstItem="IfN-0b-Od8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Dfd-q7-fUc"/>
+                            <constraint firstItem="5je-e1-NVm" firstAttribute="top" secondItem="IfN-0b-Od8" secondAttribute="bottom" constant="8" symbolic="YES" id="ExQ-pg-Ob7"/>
+                            <constraint firstItem="w5s-S0-Fog" firstAttribute="centerX" secondItem="IL1-0w-alk" secondAttribute="centerX" id="PtH-fG-BGO"/>
+                            <constraint firstItem="PRN-l6-tKg" firstAttribute="centerX" secondItem="jve-tG-iB7" secondAttribute="centerX" id="QfW-72-1hf"/>
                             <constraint firstItem="IfN-0b-Od8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Smv-XR-hWg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jve-tG-iB7" secondAttribute="trailing" constant="16" id="T4x-e2-CvO"/>
+                            <constraint firstItem="IL1-0w-alk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bBb-p8-ly7"/>
+                            <constraint firstItem="w5s-S0-Fog" firstAttribute="top" secondItem="IL1-0w-alk" secondAttribute="bottom" constant="-1.5" id="gvs-La-k1z"/>
                             <constraint firstItem="jve-tG-iB7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="vg7-8N-BGk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c6X-1A-K65" secondAttribute="bottom" constant="20" id="xDq-Bm-Z02"/>
                         </constraints>
@@ -53,6 +89,7 @@
                     <connections>
                         <outlet property="actionButton" destination="c6X-1A-K65" id="Jlr-7r-RH1"/>
                         <outlet property="leftImageView" destination="IfN-0b-Od8" id="002-ro-36J"/>
+                        <outlet property="predTimeLabel" destination="w5s-S0-Fog" id="jfd-mW-umz"/>
                         <outlet property="rightImageView" destination="jve-tG-iB7" id="JUl-PL-L7r"/>
                     </connections>
                 </viewController>
@@ -65,8 +102,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

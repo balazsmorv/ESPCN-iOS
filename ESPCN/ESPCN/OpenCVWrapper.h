@@ -14,7 +14,7 @@
 @interface OpenCVWrapper : NSObject
 
 +(UIImage *)rgb_to_ycrbc:(UIImage *)source;
-+(UIImage *)uiimage_from_y:(UInt8*)y and_cr:(UInt8*)cr and_bc:(UInt8*)bc;
++(UIImage *)uiimage_from_y:(UInt8*)y and_cr:(UInt8*)cr and_bc:(UInt8*)bc width:(int)w height:(int)h;
 
 @end
 

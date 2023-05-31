@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var predTimeLabel: UILabel!
     
     let model = try! ESPCN(configuration: .init())
 
@@ -32,8 +33,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         actionButton.addTarget(self, action: #selector(superResolve), for: .touchUpInside)
     }
     
+    var num = 0
+    var time = 0.0
+    
+    var bigtime = 0.0
+    
     @objc func superResolve() {
+        let bigStart = Date()
         guard let leftImage = leftImageView.image else { return }
+        let imw = Int(leftImage.size.width)
+        let imh = Int(leftImage.size.height)
         guard let ycrbcImage = OpenCVWrapper.rgb_(to_ycrbc: leftImage) else {return }
         guard let pixelData = ycrbcImage.cgImage?.dataProvider?.data as? NSData else { return }
         let pixelBytes = pixelData.bytes
@@ -50,23 +59,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             bcArr.append(bc)
         }
         
-        let shapedarray = MLShapedArray(scalars: yArr, shape: [1, 64, 64, 1])
+        let shapedarray = MLShapedArray(scalars: yArr, shape: [1, imw, imh, 1])
         let multiarray = MLMultiArray(shapedarray)
         
         let start = Date()
-        guard let pred = try? model.prediction(input: ESPCNInput(input_3: MLShapedArray(multiarray))) else { return }
-        print("Model inference time: ", Date().timeIntervalSince(start))
+        guard let pred = try? model.prediction(input: ESPCNInput(input_1: MLShapedArray(multiarray))) else { return }
+        let predtime = Date().timeIntervalSince(start)
+        predTimeLabel.text = String(format: "%.5f", predtime) + "s"
+        time += predtime
+        num += 1
+        print("Avg inference time: ", time / Double(num))
         var predImY = pred.IdentityShapedArray[0].scalars
         
         predImY = predImY.map {$0 * 255.0}
         predImY = predImY.map({ element in if element > 255.0 { return 255.0 } else { return element } })
         var uint8Y = predImY.map {UInt8($0)}
                 
-        guard let rgbImage = OpenCVWrapper.uiimage_(from_y: &uint8Y, and_cr: &crArr, and_bc: &bcArr) else { return }
+        guard let rgbImage = OpenCVWrapper.uiimage_(from_y: &uint8Y, and_cr: &crArr, and_bc: &bcArr, width: Int32(imw), height: Int32(imh)) else { return }
         
         rightImageView.image = rgbImage
         
-        
+        let fulltime = Date().timeIntervalSince(bigStart)
+        bigtime += fulltime
+        print("Avg full time: ", bigtime / Double(num))
+
     }
     
 
