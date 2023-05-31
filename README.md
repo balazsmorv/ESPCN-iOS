@@ -1,4 +1,7 @@
 # ESPCN-iOS
+
+![example](https://github.com/balazsmorv/ESPCN-iOS/assets/42976408/d0ba8d79-1901-4e95-88b4-cfeec3684461)
+
 Porting and integrating the ESPCN super-resolution network into an iOS app.
 
 
