@@ -20,7 +20,7 @@ using namespace std;
 +(UIImage *)rgb_to_ycrbc:(UIImage *)source {
     cv::Mat m;
     UIImageToMat(source, m);
-    cv::Mat ycrbc(64, 64, CV_32F, cv::Scalar(0));
+    cv::Mat ycrbc;
     cvtColor(m, ycrbc, cv::COLOR_RGB2YCrCb);
     return MatToUIImage(ycrbc);
 }
