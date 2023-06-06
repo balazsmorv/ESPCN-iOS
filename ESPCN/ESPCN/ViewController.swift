@@ -17,7 +17,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var predTimeLabel: UILabel!
     
-    let model = try! ESPCN(configuration: .init())
+    let model = try! ESPCN_torch(configuration: .init()) // torch
+    // let model = try! ESPCN(configuration: .init()) // tf
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var num = 0
     var time = 0.0
+    var times = [Double]()
     
     var bigtime = 0.0
+    var bigtimes = [Double]()
     
     @objc func superResolve() {
         let bigStart = Date()
@@ -59,17 +62,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             bcArr.append(bc)
         }
         
-        let shapedarray = MLShapedArray(scalars: yArr, shape: [1, imw, imh, 1])
+        let shapedarray = MLShapedArray(scalars: yArr, shape: [1, 1, imw, imh]) // torch
+        // let shapedarray = MLShapedArray(scalars: yArr, shape: [1, imw, imh, 1]) // tf
         let multiarray = MLMultiArray(shapedarray)
         
         let start = Date()
-        guard let pred = try? model.prediction(input: ESPCNInput(input_1: MLShapedArray(multiarray))) else { return }
+        guard let pred = try? model.prediction(input: ESPCN_torchInput(x_1: MLShapedArray(multiarray))) else { return } // torch
+        // guard let pred = try? model.prediction(input: ESPCNInput(input_1: MLShapedArray(multiarray))) else { return } // tf
         let predtime = Date().timeIntervalSince(start)
         predTimeLabel.text = String(format: "%.5f", predtime) + "s"
         time += predtime
+        times.append(predtime)
+        print(times)
         num += 1
         print("Avg inference time: ", time / Double(num))
-        var predImY = pred.IdentityShapedArray[0].scalars
+        var predImY = pred.var_43ShapedArray[0].scalars // torch
+        // var predImY = pred.IdentityShapedArray[0].scalars // tf
         
         predImY = predImY.map {$0 * 255.0}
         predImY = predImY.map({ element in if element > 255.0 { return 255.0 } else { return element } })
@@ -81,6 +89,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let fulltime = Date().timeIntervalSince(bigStart)
         bigtime += fulltime
+        bigtimes.append(fulltime)
         print("Avg full time: ", bigtime / Double(num))
 
     }

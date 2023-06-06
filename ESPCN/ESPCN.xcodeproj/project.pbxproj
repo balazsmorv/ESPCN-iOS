@@ -24,6 +24,7 @@
 		544355022A254B0A0060A25C /* CVPixelBuffer+Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544354F12A254B0A0060A25C /* CVPixelBuffer+Create.swift */; };
 		544355032A254B0A0060A25C /* MLModel+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544354F22A254B0A0060A25C /* MLModel+Images.swift */; };
 		544355042A254B0A0060A25C /* NonMaxSuppression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544354F32A254B0A0060A25C /* NonMaxSuppression.swift */; };
+		5444D45F2A2DFCBB002CC68E /* ESPCN-torch.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 5444D45E2A2DFCBB002CC68E /* ESPCN-torch.mlpackage */; };
 		5472321C2A2509EC007A4DBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5472321B2A2509EC007A4DBB /* AppDelegate.swift */; };
 		5472321E2A2509EC007A4DBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5472321D2A2509EC007A4DBB /* SceneDelegate.swift */; };
 		547232202A2509EC007A4DBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5472321F2A2509EC007A4DBB /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		544354F12A254B0A0060A25C /* CVPixelBuffer+Create.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVPixelBuffer+Create.swift"; sourceTree = "<group>"; };
 		544354F22A254B0A0060A25C /* MLModel+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MLModel+Images.swift"; sourceTree = "<group>"; };
 		544354F32A254B0A0060A25C /* NonMaxSuppression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonMaxSuppression.swift; sourceTree = "<group>"; };
+		5444D45E2A2DFCBB002CC68E /* ESPCN-torch.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = "ESPCN-torch.mlpackage"; sourceTree = "<group>"; };
 		547232182A2509EC007A4DBB /* ESPCN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESPCN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5472321B2A2509EC007A4DBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5472321D2A2509EC007A4DBB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				547232332A25215E007A4DBB /* opencv2.framework */,
 				5472322F2A2509F8007A4DBB /* ESPCN.mlpackage */,
+				5444D45E2A2DFCBB002CC68E /* ESPCN-torch.mlpackage */,
 				5472321B2A2509EC007A4DBB /* AppDelegate.swift */,
 				5472321D2A2509EC007A4DBB /* SceneDelegate.swift */,
 				5472321F2A2509EC007A4DBB /* ViewController.swift */,
@@ -221,6 +224,7 @@
 				544354FB2A254B0A0060A25C /* UIImage+Extensions.swift in Sources */,
 				544355032A254B0A0060A25C /* MLModel+Images.swift in Sources */,
 				544355042A254B0A0060A25C /* NonMaxSuppression.swift in Sources */,
+				5444D45F2A2DFCBB002CC68E /* ESPCN-torch.mlpackage in Sources */,
 				544354FF2A254B0A0060A25C /* Predictions.swift in Sources */,
 				544354FA2A254B0A0060A25C /* CGImage+RawBytes.swift in Sources */,
 				544355022A254B0A0060A25C /* CVPixelBuffer+Create.swift in Sources */,
